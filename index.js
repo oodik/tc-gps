@@ -2,20 +2,20 @@ const express = require("express");
 const app = express();
 app.use(express.json());
 var cors = require('cors');
-// var port = process.env.PORT || 1337;
-var port = 1337;
+var port = process.env.PORT || 1337;
+
 app.use(cors());
 
 var data = ["gps", "rotate"]
 
   app.get("/", (req, res) => {
-      res.send({running: true});
+      res.send("ok");
      });
 
 
   // running test ---------------------------------------
   app.get("/api", (req, res) => {
-      res.send({running: true});
+      res.send("ok");
      });
 
   // save data from plane
