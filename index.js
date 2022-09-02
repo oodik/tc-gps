@@ -6,7 +6,7 @@ var port = process.env.PORT || 1337;
 
 app.use(cors());
 
-var data = ["gps", "rotate"]
+var data = ["gps", "rotate", "height (sea)", "place of arrival"]
 
   app.get("/", (req, res) => {
       res.send("ok");
@@ -19,10 +19,13 @@ var data = ["gps", "rotate"]
      });
 
   // save data from plane
-  app.post("/api/send-data", (req, res) => {
+  app.post("/api/send-from-plane", (req, res) => {
     if (req.body.key == 1234) {
       if (req.body.data) {
-         data = req.body.data;
+        for(let i = 0; i < req.body.data.length; i++) {
+          data[i] = req.body.data[i];
+        }
+         
         res.send("ok");
       } else {
          res.send("data error");
