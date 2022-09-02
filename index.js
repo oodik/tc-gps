@@ -8,6 +8,9 @@ app.use(cors());
 
 var data = {["gps", "rotate"]}
 
+  app.get("/", (req, res) => {
+      res.send({running: true});
+     });
 
 
   // running test ---------------------------------------
