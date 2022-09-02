@@ -23,7 +23,7 @@ var data = ["gps", "rotate"]
     if (req.body.key == 1234) {
       if (req.body.data) {
          data = req.body.data;
-        res.send(500);
+        res.send("ok");
       } else {
          res.send("data error");
       }
