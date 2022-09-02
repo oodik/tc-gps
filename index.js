@@ -6,7 +6,7 @@ var port = process.env.PORT || 1337;
 
 app.use(cors());
 
-var data = ["gps", "rotate", "height (sea)", "place of arrival"]
+var data = [[14.400307, 50.071853], "rotate", "height (sea)", "place of arrival"]
 
   app.get("/", (req, res) => {
       res.send("ok");
@@ -38,7 +38,7 @@ var data = ["gps", "rotate", "height (sea)", "place of arrival"]
   // get data to pc
   app.post("/api/give-data", (req, res) => {
     if (req.body.key == 1234) {
-      res.send("asijofo jasiouhfi hasi hfuihsaifnuiasn fassadf");
+      res.send(data);
     } else {
       res.send("error");
     }
