@@ -36,7 +36,7 @@ var data = ["gps", "rotate", "height (sea)", "place of arrival"]
   })
 
   // get data to pc
-  app.post("/api/give-data", (req, res) => {
+  app.get("/api/give-data", (req, res) => {
     if (req.body.key == 1234) {
       res.send(data);
     } else {
