@@ -6,7 +6,7 @@ var port = process.env.PORT || 1337;
 
 app.use(cors());
 
-var data = [[14.400307, 50.071853], "rotate", "height (sea)", [16.2593606, 50.3242377]]
+var data = [[50.2847306, 16.2360281], "rotate", "height (sea)", [16.2593606, 50.3242377]]
 
   app.get("/", (req, res) => {
       res.send("ok");
