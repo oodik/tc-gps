@@ -6,7 +6,7 @@ var cors = require('cors');
 var port = 1337;
 app.use(cors());
 
-var data = {["gps", "rotate"]}
+var data = ["gps", "rotate"]
 
   app.get("/", (req, res) => {
       res.send({running: true});
