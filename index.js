@@ -54,4 +54,9 @@ app.post("/api/arrive-here", (req, res) => {
     }
    });
 
+  // plane req to arrive place
+  app.get("/api/where-arrive", (req, res) => {
+      res.send(data[7);
+     });
+
 app.listen(port, () => console.log("Listening on port " + port + "..."));
