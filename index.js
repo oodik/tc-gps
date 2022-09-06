@@ -83,7 +83,7 @@ app.post("/api/arrive-here", (req, res) => {
     
     
   
-}
+
       res.send(countDirection(data[data.length], data[0]));
      });
 
