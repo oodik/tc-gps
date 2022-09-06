@@ -25,7 +25,8 @@ function countDirection(to, where) {
     } 
   
     degrees = degrees + (Math.atan(medirian/paraller)) * 180 / Math.PI
-    return([degrees, "xxx"])
+    data[3] = degrees
+
 }
 
 
@@ -60,7 +61,7 @@ function countDirection(to, where) {
   // get data to pc
   app.post("/api/give-data", (req, res) => {
     if (req.body.key == 1234) {
-      countDirection(data[data.length], data[0])
+      countDirection(data[8], data[0])
       res.send(data);
     } else {
       res.send("error");
@@ -79,12 +80,7 @@ app.post("/api/arrive-here", (req, res) => {
   // plane req to arrive place
   app.get("/api/where-arrive", (req, res) => {
     
-      data[3] = degrees
-    
-    
-  
-
-      res.send(countDirection(data[data.length], data[0]));
+      res.send(countDirection(data[8], data[0]));
      });
 
 
