@@ -62,6 +62,8 @@ app.post("/api/arrive-here", (req, res) => {
     let medirian = (to[1] - where[1])/180 * 40075
     let degrees = 0
     
+    console.log(to, where)
+     
     // Quadrant check
     if (paraller < 0 && medirian > 0) {
       degrees = 90 
@@ -71,7 +73,7 @@ app.post("/api/arrive-here", (req, res) => {
       degrees = 270
     } 
     
-    console.log([Math.abs(medirian), Math.abs(paraller)])
+    
     degrees = degrees + (Math.atan(Math.abs(medirian)/Math.abs(paraller))) * 180 / Math.PI
       
     
