@@ -6,8 +6,8 @@ var port = process.env.PORT || 1337;
 
 app.use(cors());
 
-// data - gps (plane now), height under sea (m), compass (degrees from N), distance from lander place (horizontal, m), speed (horizontal, m/s), speed of sinking (m/s)
-var data = [[50.2847306, 16.2360281], 800, 15, 7000, 5, 1, "na zemi!", [50.2807306, 16.2310281]]
+// data - gps (plane now), height under sea (m), plane compass (degrees from N), computed compass, distance from lander place (horizontal, m), speed (horizontal, m/s), speed of sinking (m/s)
+var data = [[50.2847306, 16.2360281], 800, 15, 20, 7000, 5, 1, "na zemi!", [50.2807306, 16.2310281]]
 
   app.get("/", (req, res) => {
       res.send("ok");
@@ -48,7 +48,7 @@ var data = [[50.2847306, 16.2360281], 800, 15, 7000, 5, 1, "na zemi!", [50.28073
 // send place arrival from pc
 app.post("/api/arrive-here", (req, res) => {
     if (req.body.key == 1234) {
-      data[7] = req.body.data;
+      data[data.length] = req.body.data;
     } else {
       res.send("error");
     }
@@ -78,11 +78,12 @@ app.post("/api/arrive-here", (req, res) => {
       
     
     return([degrees, "xxx"])
+      data[3] = degrees
     
     
   
 }
-      res.send(countDirection(data[7], data[0]));
+      res.send(countDirection(data[data.length], data[0]));
      });
 
 
