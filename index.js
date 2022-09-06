@@ -60,8 +60,21 @@ app.post("/api/arrive-here", (req, res) => {
       
     let paraller = (to[1] - where[0])/360 * 40075
     let medirian = (to[0] - where[1])/180 * 40075
+    let degrees = 0
     
-    return([paraller, medirian])
+    // Quadrant check
+    if (paraller > 0 && medirian < 0) {
+      degrees = degrees + 90 
+    } else if (paraller < 0 && medirian < 0) {
+      degrees = degrees + 180
+    } else if (paraller < 0 && medirian > 0) {
+      degrees = degrees + 270
+    } 
+    
+    degrees = degrees + (cotane(medirian/paraller))
+      
+    
+    return(degrees)
     
     
   
