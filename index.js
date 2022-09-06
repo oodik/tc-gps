@@ -39,6 +39,7 @@ var data = [[50.2847306, 16.2360281], 800, 15, 20, 7000, 5, 1, "na zemi!", [50.2
   // get data to pc
   app.post("/api/give-data", (req, res) => {
     if (req.body.key == 1234) {
+      countDirection(data[data.length], data[0])
       res.send(data);
     } else {
       res.send("error");
