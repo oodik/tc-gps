@@ -28,7 +28,7 @@ function countDirection(to, where) {
     data[3] = Math.round(degrees)
     
     // land distance counting
-    data[4] = Math.sqrt(Math.pow((paraller*1000),2) + Math.pow((medirian*1000),2))
+    data[4] =Math.round(Math.sqrt(Math.pow((paraller*1000),2) + Math.pow((medirian*1000),2)))
 }
 
 
