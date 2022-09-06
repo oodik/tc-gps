@@ -56,7 +56,16 @@ app.post("/api/arrive-here", (req, res) => {
 
   // plane req to arrive place
   app.get("/api/where-arrive", (req, res) => {
-      res.send(data[7]);
+      res.send([data[7], countDirection(data[7], data[0])]);
      });
+
+function countDirection(to, where) {
+    let paraller = (to[0] - where[0])/360 * 4075
+    let medirian = (to[1] - where[1])/180 * 4075
+    
+    return([paraller, medirian])
+    
+    
+}
 
 app.listen(port, () => console.log("Listening on port " + port + "..."));
