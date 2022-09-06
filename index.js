@@ -63,15 +63,15 @@ app.post("/api/arrive-here", (req, res) => {
     let degrees = 0
     
     // Quadrant check
-    if (paraller > 0 && medirian < 0) {
+    if (paraller < 0 && medirian > 0) {
       degrees = 90 
     } else if (paraller < 0 && medirian < 0) {
       degrees = 180
-    } else if (paraller < 0 && medirian > 0) {
+    } else if (paraller > 0 && medirian < 0) {
       degrees = 270
     } 
     
-    // degrees = degrees + (1/Math.tan(medirian/paraller))
+    degrees = degrees + (1/Math.tan(medirian/paraller))
       
     
     return([degrees, "xxx"])
