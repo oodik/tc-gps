@@ -25,7 +25,7 @@ function countDirection(to, where) {
     } 
   
     degrees = degrees + (Math.atan(medirian/paraller)) * 180 / Math.PI
-    data[3] = degrees
+    data[3] = Math.round(degrees)
 
 }
 
