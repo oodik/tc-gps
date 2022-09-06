@@ -71,7 +71,7 @@ function countDirection(to, where) {
 // send place arrival from pc
 app.post("/api/arrive-here", (req, res) => {
     if (req.body.key == 1234) {
-      data[data.length] = req.body.data;
+      data[8] = req.body.data;
     } else {
       res.send("error");
     }
