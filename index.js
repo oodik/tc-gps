@@ -71,6 +71,7 @@ app.post("/api/arrive-here", (req, res) => {
       degrees = 270
     } 
     
+    console.log([Math.abs(medirian), Math.abs(paraller)])
     degrees = degrees + (Math.atan(Math.abs(medirian)/Math.abs(paraller))) * 180 / Math.PI
       
     
