@@ -66,6 +66,7 @@ function countDirection(to, where) {
     return([paraller, medirian])
     
     
+  
 }
 
 app.listen(port, () => console.log("Listening on port " + port + "..."));
