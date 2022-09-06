@@ -66,11 +66,11 @@ app.post("/api/arrive-here", (req, res) => {
      
     // Quadrant check
     if (paraller < 0 && medirian > 0) {
-      degrees = 90 
+      degrees = 180 
     } else if (paraller < 0 && medirian < 0) {
       degrees = 180
     } else if (paraller > 0 && medirian < 0) {
-      degrees = 270
+      degrees = 360
     } 
     
     
