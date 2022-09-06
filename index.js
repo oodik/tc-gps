@@ -26,7 +26,9 @@ function countDirection(to, where) {
   
     degrees = degrees + (Math.atan(medirian/paraller)) * 180 / Math.PI
     data[3] = Math.round(degrees)
-
+    
+    // land distance counting
+    data[4] = Math.sqrt(Math.pow((paraller*1000),2) + (medirian*1000),2))
 }
 
 
