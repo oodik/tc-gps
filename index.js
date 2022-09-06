@@ -71,7 +71,7 @@ app.post("/api/arrive-here", (req, res) => {
       degrees = degrees + 270
     } 
     
-    degrees = degrees + (cotane(medirian/paraller))
+    degrees = degrees + (1/Math.tan(medirian/paraller))
       
     
     return(degrees)
