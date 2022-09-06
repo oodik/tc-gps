@@ -9,6 +9,27 @@ app.use(cors());
 // data - gps (plane now), height under sea (m), plane compass (degrees from N), computed compass, distance from lander place (horizontal, m), speed (horizontal, m/s), speed of sinking (m/s)
 var data = [[50.2847306, 16.2360281], 800, 15, 20, 7000, 5, 1, "na zemi!", [50.2807306, 16.2310281]]
 
+
+// compute compass for plane
+function countDirection(to, where) {
+    let paraller = (to[0] - where[0])/180 * 40075
+    let medirian = (to[1] - where[1])/360 * 40075
+    let degrees = 0
+    // Quadrant check
+    if (paraller < 0 && medirian > 0) {
+      degrees = 180 
+    } else if (paraller < 0 && medirian < 0) {
+      degrees = 180
+    } else if (paraller > 0 && medirian < 0) {
+      degrees = 360
+    } 
+  
+    degrees = degrees + (Math.atan(medirian/paraller)) * 180 / Math.PI
+    return([degrees, "xxx"])
+}
+
+
+
   app.get("/", (req, res) => {
       res.send("ok");
      });
@@ -57,28 +78,7 @@ app.post("/api/arrive-here", (req, res) => {
 
   // plane req to arrive place
   app.get("/api/where-arrive", (req, res) => {
-    function countDirection(to, where) {
-      
-    let paraller = (to[0] - where[0])/180 * 40075
-    let medirian = (to[1] - where[1])/360 * 40075
-    let degrees = 0
     
-    console.log(to, where)
-     
-    // Quadrant check
-    if (paraller < 0 && medirian > 0) {
-      degrees = 180 
-    } else if (paraller < 0 && medirian < 0) {
-      degrees = 180
-    } else if (paraller > 0 && medirian < 0) {
-      degrees = 360
-    } 
-    
-    
-    degrees = degrees + (Math.atan(medirian/paraller)) * 180 / Math.PI
-      
-    
-    return([degrees, "xxx"])
       data[3] = degrees
     
     
