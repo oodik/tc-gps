@@ -58,7 +58,7 @@ app.post("/api/arrive-here", (req, res) => {
   app.get("/api/where-arrive", (req, res) => {
     function countDirection(to, where) {
       
-    let paraller = (to[1] - where[0])/360 * 40075
+    let paraller = (to[0] - where[1])/360 * 40075
     let medirian = (to[0] - where[1])/180 * 40075
     let degrees = 0
     
