@@ -7,7 +7,7 @@ var port = process.env.PORT || 1337;
 app.use(cors());
 
 // data - gps (plane now), height under sea (m), compass (degrees from N), distance from lander place (horizontal, m), speed (horizontal, m/s), speed of sinking (m/s)
-var data = [[50.2847306, 16.2360281], 800, 15, 7000, 5, 1, "na zemi!", [50.2847306, 16.2360281]]
+var data = [[50.2847306, 16.2360281], 800, 15, 7000, 5, 1, "na zemi!", [50.2807306, 16.2310281]]
 
   app.get("/", (req, res) => {
       res.send("ok");
@@ -66,7 +66,7 @@ app.post("/api/arrive-here", (req, res) => {
     
   
 }
-      res.send([data[7], countDirection(data[7], data[0])]);
+      res.send(countDirection(data[7], data[0])]);
      });
 
 
